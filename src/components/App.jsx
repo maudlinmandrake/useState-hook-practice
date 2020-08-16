@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 function App() {
+  const [time, currentTime] = useState("Time");
+
+  function getTime() {
+    const time = new Date().toLocaleTimeString();
+    currentTime(time);
+  }
+
   return (
     <div className="container">
-      <h1>TIME</h1>
-      <button>Get Time</button>
+      <h1>{time}</h1>
+      <button onClick={getTime}>Get Time</button>
     </div>
   );
 }
